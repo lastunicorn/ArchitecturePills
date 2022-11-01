@@ -1,0 +1,84 @@
+﻿<Window
+    x:Class="DustInTheWind.ArchitecturePills.MainWindow"
+
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:architecturePills="clr-namespace:DustInTheWind.ArchitecturePills"
+
+    mc:Ignorable="d"
+    Title="Architecture Pills"
+    Height="480"
+    Width="640"
+    ResizeMode="CanResizeWithGrip"
+    d:DataContext="{d:DesignInstance {x:Type architecturePills:MainViewModel}}">
+
+    <DockPanel Margin="20">
+
+        <StackPanel
+            DockPanel.Dock="Top"
+            Orientation="Vertical"
+            HorizontalAlignment="Center">
+
+            <TextBlock
+                Text="Input Value"
+                VerticalAlignment="Center"
+                Margin="0 0 0 8"
+                HorizontalAlignment="Center" />
+
+            <TextBox
+                Text="{Binding InputValue, StringFormat=N2}"
+                MinWidth="150"
+                HorizontalContentAlignment="Center"
+                FontSize="20" />
+
+        </StackPanel>
+
+        <DockPanel
+            DockPanel.Dock="Left"
+            Margin="0 20 0 0">
+
+            <TextBlock
+                DockPanel.Dock="Top"
+                Text="Start Time"
+                Margin="0 0 0 8"
+                HorizontalAlignment="Center" />
+
+            <ListBox
+                ItemsSource="{Binding StartTimes}"
+                SelectedItem="{Binding SelectedStartTime}"
+                MinWidth=" 100" />
+
+        </DockPanel>
+
+        <DockPanel
+            DockPanel.Dock="Right"
+            Margin="0 20 0 0">
+
+            <TextBlock
+                DockPanel.Dock="Top"
+                Text="Output Time"
+                Margin="0 0 0 8"
+                HorizontalAlignment="Center" />
+
+            <ListBox
+                ItemsSource="{Binding EndTimes}"
+                SelectedItem="{Binding SelectedEndTime}"
+                MinWidth=" 100" />
+
+        </DockPanel>
+
+        <Viewbox
+            StretchDirection="DownOnly"
+            Margin="20">
+
+            <TextBlock
+                Text="{Binding OutputValue}"
+                FontSize="40" />
+
+        </Viewbox>
+
+    </DockPanel>
+
+</Window>

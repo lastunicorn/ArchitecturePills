@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <AssemblyName>DustInTheWind.ArchitecturePills</AssemblyName>
+        <RootNamespace>DustInTheWind.ArchitecturePills</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Data\inflation-yearly.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Data\inflation-yearly.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+</Project>
