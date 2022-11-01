@@ -9,18 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="Data\inflation-yearly.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Include="Data\inflation-yearly.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    </ItemGroup>
-
-    <ItemGroup>
+        <ProjectReference Include="..\ArchitecturePills.Application\ArchitecturePills.Application.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Domain\ArchitecturePills.Domain.csproj" PrivateAssets="All" />
     </ItemGroup>
 

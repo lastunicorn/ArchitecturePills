@@ -1,23 +1,19 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using DustInTheWind.ArchitecturePills.Domain;
-using Newtonsoft.Json;
+using DustInTheWind.ArchitecturePills.Application.CalculateValue;
+using DustInTheWind.ArchitecturePills.Application.Initialize;
 
 namespace DustInTheWind.ArchitecturePills
 {
     public class MainViewModel : BaseViewModel
     {
-        private readonly List<Inflation> inflations;
         private string selectedStartTime;
         private string selectedEndTime;
         private float inputValue;
         private float? outputValue;
 
-        public List<string> StartTimes { get; }
+        public List<string> StartTimes { get; set; }
 
-        public List<string> EndTimes { get; }
+        public List<string> EndTimes { get; set; }
 
         public string SelectedStartTime
         {
@@ -61,42 +57,34 @@ namespace DustInTheWind.ArchitecturePills
 
         public MainViewModel()
         {
-            inflations = LoadInflations();
-
-            List<string> listValues = inflations
-                .Select(x => x.Time)
-                .ToList();
-
-            StartTimes = listValues;
-            SelectedStartTime = listValues.LastOrDefault();
-
-            EndTimes = listValues;
-            SelectedEndTime = listValues.LastOrDefault();
-
-            InputValue = 100;
+            Initialize();
         }
 
-        private static List<Inflation> LoadInflations()
+        private void Initialize()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            using Stream stream = assembly.GetManifestResourceStream("DustInTheWind.ArchitecturePills.Data.inflation-yearly.json");
-            using StreamReader streamReader = new(stream);
-            string json = streamReader.ReadToEnd();
-            return JsonConvert.DeserializeObject<List<Inflation>>(json);
+            InitializeUseCase useCase = new();
+            InitializeResponse response = useCase.Execute();
+
+            StartTimes = response.StartTimes;
+            SelectedStartTime = response.SelectedStartTime;
+            EndTimes = response.EndTimes;
+            SelectedEndTime = response.SelectedEndTime;
+            InputValue = response.InputValue;
         }
 
         private void CalculateOutputValue()
         {
-            Calculator calculator = new()
+            CalculateValueRequest request = new()
             {
-                Inflations = inflations,
                 InputValue = inputValue,
                 StartTime = selectedStartTime,
                 EndTime = selectedEndTime
             };
 
-            calculator.Calculate();
-            OutputValue = calculator.OutputValue;
+            CalculateValueUseCase useCase = new();
+            CalculateValueResponse response = useCase.Execute(request);
+
+            OutputValue = response.OutputValue;
         }
     }
 }
