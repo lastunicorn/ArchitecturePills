@@ -1,6 +1,6 @@
-﻿namespace DustInTheWind.ArchitecturePills
+﻿namespace DustInTheWind.ArchitecturePills.Domain
 {
-    internal class Inflation
+    public class Inflation
     {
         public string Time { get; set; }
 

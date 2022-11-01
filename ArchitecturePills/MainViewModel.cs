@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using DustInTheWind.ArchitecturePills.Domain;
 using Newtonsoft.Json;
 
 namespace DustInTheWind.ArchitecturePills
@@ -86,43 +87,16 @@ namespace DustInTheWind.ArchitecturePills
 
         private void CalculateOutputValue()
         {
-            // find start index
-            int startIndex = inflations.FindIndex(x => x.Time == selectedStartTime);
-
-            // find end index
-            int endIndex = inflations.FindIndex(x => x.Time == selectedEndTime);
-
-            if (startIndex == -1 || endIndex == -1)
+            Calculator calculator = new()
             {
-                OutputValue = null;
-            }
-            else
-            {
-                // iterate from start index to end index and adjust the calculated value based on the inflation rate of each step.
+                Inflations = inflations,
+                InputValue = inputValue,
+                StartTime = selectedStartTime,
+                EndTime = selectedEndTime
+            };
 
-                float calculatedValue = inputValue;
-
-                if (startIndex < endIndex)
-                {
-                    for (int i = startIndex + 1; i <= endIndex; i++)
-                    {
-                        float inflationRate = inflations[i].InflationRate;
-                        float inflationValue = 1 + inflationRate / 100;
-                        calculatedValue *= inflationValue;
-                    }
-                }
-                else if (startIndex > endIndex)
-                {
-                    for (int i = startIndex; i > endIndex; i--)
-                    {
-                        float inflationRate = inflations[i].InflationRate;
-                        float inflationValue = 1 + inflationRate / 100;
-                        calculatedValue /= inflationValue;
-                    }
-                }
-
-                OutputValue = calculatedValue;
-            }
+            calculator.Calculate();
+            OutputValue = calculator.OutputValue;
         }
     }
 }
