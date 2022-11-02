@@ -9,6 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Autofac" Version="6.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\ArchitecturePills.Application\ArchitecturePills.Application.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.DataAccess\ArchitecturePills.DataAccess.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Domain\ArchitecturePills.Domain.csproj" PrivateAssets="All" />

@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using DustInTheWind.ArchitecturePills.DataAccess;
+using Autofac;
 using DustInTheWind.ArchitecturePills.Presentation;
 
 namespace DustInTheWind.ArchitecturePills.Bootstrapper
@@ -11,18 +11,19 @@ namespace DustInTheWind.ArchitecturePills.Bootstrapper
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            InflationRepository inflationRepository = new();
-            MainViewModel viewModel = new(inflationRepository);
+            IContainer container = CreateContainer();
 
-            MainWindow mainWindow = new()
-            {
-                DataContext = viewModel
-            };
-
-            MainWindow = mainWindow;
+            MainWindow = container.Resolve<MainWindow>();
             MainWindow.Show();
 
             base.OnStartup(e);
+        }
+
+        private static IContainer CreateContainer()
+        {
+            ContainerBuilder containerBuilder = new();
+            SetupServices.Configure(containerBuilder);
+            return containerBuilder.Build();
         }
     }
 }
