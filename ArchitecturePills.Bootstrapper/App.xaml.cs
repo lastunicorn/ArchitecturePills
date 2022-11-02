@@ -14,10 +14,7 @@ namespace DustInTheWind.ArchitecturePills.Bootstrapper
             InflationRepository inflationRepository = new();
             MainViewModel viewModel = new(inflationRepository);
 
-            MainWindow mainWindow = new()
-            {
-                DataContext = viewModel
-            };
+            MainWindow mainWindow = new(viewModel);
 
             MainWindow = mainWindow;
             MainWindow.Show();
