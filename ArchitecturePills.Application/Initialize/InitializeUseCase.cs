@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using DustInTheWind.ArchitecturePills.DataAccess;
 using DustInTheWind.ArchitecturePills.Domain;
+using DustInTheWind.ArchitecturePills.Ports.DataAccess;
 
 namespace DustInTheWind.ArchitecturePills.Application.Initialize
 {
