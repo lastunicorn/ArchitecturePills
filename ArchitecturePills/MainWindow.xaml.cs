@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using DustInTheWind.ArchitecturePills.DataAccess;
 
 namespace DustInTheWind.ArchitecturePills
 {
@@ -11,7 +12,8 @@ namespace DustInTheWind.ArchitecturePills
         {
             InitializeComponent();
 
-            DataContext = new MainViewModel();
+            InflationRepository inflationRepository = new();
+            DataContext = new MainViewModel(inflationRepository);
         }
     }
 }

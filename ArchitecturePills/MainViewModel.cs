@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DustInTheWind.ArchitecturePills.Application.CalculateValue;
 using DustInTheWind.ArchitecturePills.Application.Initialize;
+using DustInTheWind.ArchitecturePills.DataAccess;
 
 namespace DustInTheWind.ArchitecturePills
 {
     public class MainViewModel : BaseViewModel
     {
+        private readonly IInflationRepository inflationRepository;
         private string selectedStartTime;
         private string selectedEndTime;
         private float inputValue;
@@ -55,14 +58,16 @@ namespace DustInTheWind.ArchitecturePills
             }
         }
 
-        public MainViewModel()
+        public MainViewModel(IInflationRepository inflationRepository)
         {
+            this.inflationRepository = inflationRepository ?? throw new ArgumentNullException(nameof(inflationRepository));
+
             Initialize();
         }
 
         private void Initialize()
         {
-            InitializeUseCase useCase = new();
+            InitializeUseCase useCase = new(inflationRepository);
             InitializeResponse response = useCase.Execute();
 
             StartTimes = response.StartTimes;
@@ -80,8 +85,8 @@ namespace DustInTheWind.ArchitecturePills
                 StartTime = selectedStartTime,
                 EndTime = selectedEndTime
             };
-
-            CalculateValueUseCase useCase = new();
+            
+            CalculateValueUseCase useCase = new(inflationRepository);
             CalculateValueResponse response = useCase.Execute(request);
 
             OutputValue = response.OutputValue;

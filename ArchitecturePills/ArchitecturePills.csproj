@@ -10,6 +10,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\ArchitecturePills.Application\ArchitecturePills.Application.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\ArchitecturePills.DataAccess\ArchitecturePills.DataAccess.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Domain\ArchitecturePills.Domain.csproj" PrivateAssets="All" />
     </ItemGroup>
 

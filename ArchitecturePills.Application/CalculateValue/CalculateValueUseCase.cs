@@ -1,16 +1,22 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using DustInTheWind.ArchitecturePills.DataAccess;
 using DustInTheWind.ArchitecturePills.Domain;
-using Newtonsoft.Json;
 
 namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
 {
     public class CalculateValueUseCase
     {
+        private readonly IInflationRepository inflationRepository;
+
+        public CalculateValueUseCase(IInflationRepository inflationRepository)
+        {
+            this.inflationRepository = inflationRepository ?? throw new ArgumentNullException(nameof(inflationRepository));
+        }
+
         public CalculateValueResponse Execute(CalculateValueRequest request)
         {
-            List<Inflation> inflations = LoadInflations();
+            List<Inflation> inflations = inflationRepository.GetAll();
 
             Calculator calculator = new()
             {
@@ -27,15 +33,6 @@ namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
             {
                 OutputValue = outputValue
             };
-        }
-
-        private static List<Inflation> LoadInflations()
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            using Stream stream = assembly.GetManifestResourceStream("DustInTheWind.ArchitecturePills.Application.Data.inflation-yearly.json");
-            using StreamReader streamReader = new(stream);
-            string json = streamReader.ReadToEnd();
-            return JsonConvert.DeserializeObject<List<Inflation>>(json);
         }
     }
 }
