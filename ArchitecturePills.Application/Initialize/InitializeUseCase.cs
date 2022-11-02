@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using DustInTheWind.ArchitecturePills.Domain;
 using DustInTheWind.ArchitecturePills.Ports.DataAccess;
+using MediatR;
 
 namespace DustInTheWind.ArchitecturePills.Application.Initialize
 {
-    public class InitializeUseCase
+    internal class InitializeUseCase : IRequestHandler<InitializeRequest, InitializeResponse>
     {
         private readonly IInflationRepository inflationRepository;
 
@@ -15,7 +18,7 @@ namespace DustInTheWind.ArchitecturePills.Application.Initialize
             this.inflationRepository = inflationRepository ?? throw new ArgumentNullException(nameof(inflationRepository));
         }
 
-        public InitializeResponse Execute()
+        public Task<InitializeResponse> Handle(InitializeRequest request, CancellationToken cancellationToken)
         {
             List<Inflation> inflations = inflationRepository.GetAll();
 
@@ -23,7 +26,7 @@ namespace DustInTheWind.ArchitecturePills.Application.Initialize
                 .Select(x => x.Time)
                 .ToList();
 
-            return new InitializeResponse
+            InitializeResponse response = new()
             {
                 StartTimes = listValues,
                 SelectedStartTime = listValues.LastOrDefault(),
@@ -31,6 +34,8 @@ namespace DustInTheWind.ArchitecturePills.Application.Initialize
                 SelectedEndTime = listValues.LastOrDefault(),
                 InputValue = 100
             };
+
+            return Task.FromResult(response);
         }
     }
 }
