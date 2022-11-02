@@ -2,7 +2,6 @@
 {
     public class CalculateValueResponse
     {
-
         public float? OutputValue { get; set; }
     }
 }

@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using DustInTheWind.ArchitecturePills.Application.CalculateValue;
 using DustInTheWind.ArchitecturePills.Application.Initialize;
-using DustInTheWind.ArchitecturePills.DataAccess;
-using DustInTheWind.ArchitecturePills.Ports.DataAccess;
+using MediatR;
 
 namespace DustInTheWind.ArchitecturePills
 {
     public class MainViewModel : BaseViewModel
     {
-        private readonly IInflationRepository inflationRepository;
+        private readonly IMediator mediator;
         private string selectedStartTime;
         private string selectedEndTime;
         private float inputValue;
@@ -25,7 +25,7 @@ namespace DustInTheWind.ArchitecturePills
             set
             {
                 selectedStartTime = value;
-                CalculateOutputValue();
+                _ = CalculateOutputValue();
             }
         }
 
@@ -35,7 +35,7 @@ namespace DustInTheWind.ArchitecturePills
             set
             {
                 selectedEndTime = value;
-                CalculateOutputValue();
+                _ = CalculateOutputValue();
             }
         }
 
@@ -45,7 +45,7 @@ namespace DustInTheWind.ArchitecturePills
             set
             {
                 inputValue = value;
-                CalculateOutputValue();
+                _ = CalculateOutputValue();
             }
         }
 
@@ -59,17 +59,17 @@ namespace DustInTheWind.ArchitecturePills
             }
         }
 
-        public MainViewModel(IInflationRepository inflationRepository)
+        public MainViewModel(IMediator mediator)
         {
-            this.inflationRepository = inflationRepository ?? throw new ArgumentNullException(nameof(inflationRepository));
+            this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
 
-            Initialize();
+            _ = Initialize();
         }
 
-        private void Initialize()
+        private async Task Initialize()
         {
-            InitializeUseCase useCase = new(inflationRepository);
-            InitializeResponse response = useCase.Execute();
+            InitializeRequest request = new();
+            InitializeResponse response = await mediator.Send(request);
 
             StartTimes = response.StartTimes;
             SelectedStartTime = response.SelectedStartTime;
@@ -78,7 +78,7 @@ namespace DustInTheWind.ArchitecturePills
             InputValue = response.InputValue;
         }
 
-        private void CalculateOutputValue()
+        private async Task CalculateOutputValue()
         {
             CalculateValueRequest request = new()
             {
@@ -86,9 +86,8 @@ namespace DustInTheWind.ArchitecturePills
                 StartTime = selectedStartTime,
                 EndTime = selectedEndTime
             };
-            
-            CalculateValueUseCase useCase = new(inflationRepository);
-            CalculateValueResponse response = useCase.Execute(request);
+
+            CalculateValueResponse response = await mediator.Send(request);
 
             OutputValue = response.OutputValue;
         }

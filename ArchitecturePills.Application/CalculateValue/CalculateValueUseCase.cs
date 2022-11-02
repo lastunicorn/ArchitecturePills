@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using DustInTheWind.ArchitecturePills.Domain;
 using DustInTheWind.ArchitecturePills.Ports.DataAccess;
+using MediatR;
 
 namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
 {
-    public class CalculateValueUseCase
+    public class CalculateValueUseCase : IRequestHandler<CalculateValueRequest, CalculateValueResponse>
     {
         private readonly IInflationRepository inflationRepository;
 
@@ -14,7 +17,7 @@ namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
             this.inflationRepository = inflationRepository ?? throw new ArgumentNullException(nameof(inflationRepository));
         }
 
-        public CalculateValueResponse Execute(CalculateValueRequest request)
+        public Task<CalculateValueResponse> Handle(CalculateValueRequest request, CancellationToken cancellationToken)
         {
             List<Inflation> inflations = inflationRepository.GetAll();
 
@@ -29,10 +32,12 @@ namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
             calculator.Calculate();
             float? outputValue = calculator.OutputValue;
 
-            return new CalculateValueResponse()
+            CalculateValueResponse response = new()
             {
                 OutputValue = outputValue
             };
+
+            return Task.FromResult(response);
         }
     }
 }

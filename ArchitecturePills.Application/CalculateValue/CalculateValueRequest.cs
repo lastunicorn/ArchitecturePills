@@ -1,6 +1,8 @@
-﻿namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
+﻿using MediatR;
+
+namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
 {
-    public class CalculateValueRequest
+    public class CalculateValueRequest : IRequest<CalculateValueResponse>
     {
         public float InputValue { get; set; }
 
