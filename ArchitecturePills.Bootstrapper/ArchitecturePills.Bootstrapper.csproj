@@ -4,8 +4,8 @@
         <OutputType>WinExe</OutputType>
         <TargetFramework>net5.0-windows</TargetFramework>
         <UseWPF>true</UseWPF>
-        <AssemblyName>DustInTheWind.ArchitecturePills</AssemblyName>
-        <RootNamespace>DustInTheWind.ArchitecturePills</RootNamespace>
+        <AssemblyName>DustInTheWind.ArchitecturePills.Bootstrapper</AssemblyName>
+        <RootNamespace>DustInTheWind.ArchitecturePills.Bootstrapper</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,6 +13,7 @@
         <ProjectReference Include="..\ArchitecturePills.DataAccess\ArchitecturePills.DataAccess.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Domain\ArchitecturePills.Domain.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Ports.DataAccess\ArchitecturePills.Ports.DataAccess.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\ArchitecturePills.Presentation\ArchitecturePills.Presentation.csproj" PrivateAssets="All" />
     </ItemGroup>
 
 </Project>

@@ -1,18 +1,19 @@
 ﻿<Window
-    x:Class="DustInTheWind.ArchitecturePills.MainWindow"
+    x:Class="DustInTheWind.ArchitecturePills.Presentation.MainWindow"
 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:architecturePills="clr-namespace:DustInTheWind.ArchitecturePills"
+    xmlns:presentation="clr-namespace:DustInTheWind.ArchitecturePills.Presentation"
 
     mc:Ignorable="d"
     Title="Architecture Pills"
     Height="480"
     Width="640"
     ResizeMode="CanResizeWithGrip"
-    d:DataContext="{d:DesignInstance {x:Type architecturePills:MainViewModel}}">
+    d:DataContext="{d:DesignInstance {x:Type presentation:MainViewModel}}">
 
     <DockPanel Margin="20">
 

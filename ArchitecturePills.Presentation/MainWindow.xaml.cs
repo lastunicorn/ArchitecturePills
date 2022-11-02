@@ -1,7 +1,6 @@
 ﻿using System.Windows;
-using DustInTheWind.ArchitecturePills.DataAccess;
 
-namespace DustInTheWind.ArchitecturePills
+namespace DustInTheWind.ArchitecturePills.Presentation
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -11,9 +10,6 @@ namespace DustInTheWind.ArchitecturePills
         public MainWindow()
         {
             InitializeComponent();
-
-            InflationRepository inflationRepository = new();
-            DataContext = new MainViewModel(inflationRepository);
         }
     }
 }

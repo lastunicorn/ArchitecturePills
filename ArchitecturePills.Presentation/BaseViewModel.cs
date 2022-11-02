@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DustInTheWind.ArchitecturePills
+namespace DustInTheWind.ArchitecturePills.Presentation
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
