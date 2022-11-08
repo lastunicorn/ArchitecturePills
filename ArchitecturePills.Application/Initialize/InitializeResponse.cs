@@ -2,7 +2,7 @@
 
 namespace DustInTheWind.ArchitecturePills.Application.Initialize
 {
-    public class InitializeResponse
+    public struct InitializeResponse
     {
         public List<string> StartTimes { get; set; }
 
