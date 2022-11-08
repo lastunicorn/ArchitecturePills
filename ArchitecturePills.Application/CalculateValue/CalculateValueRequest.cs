@@ -1,6 +1,6 @@
 ﻿namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
 {
-    public class CalculateValueRequest
+    public struct CalculateValueRequest
     {
         public float InputValue { get; set; }
 
