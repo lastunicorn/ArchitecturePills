@@ -2,7 +2,7 @@
 
 namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
 {
-    public class CalculateValueRequest : IRequest<CalculateValueResponse>
+    public struct CalculateValueRequest : IRequest<CalculateValueResponse>
     {
         public float InputValue { get; set; }
 
