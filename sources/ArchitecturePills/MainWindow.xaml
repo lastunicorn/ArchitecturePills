@@ -46,8 +46,8 @@
                 HorizontalAlignment="Center" />
 
             <ListBox
-                ItemsSource="{Binding StartTimes}"
-                SelectedItem="{Binding SelectedStartTime}"
+                ItemsSource="{Binding StartKeys}"
+                SelectedItem="{Binding SelectedStartKey}"
                 MinWidth=" 100" />
 
         </DockPanel>
@@ -63,8 +63,8 @@
                 HorizontalAlignment="Center" />
 
             <ListBox
-                ItemsSource="{Binding EndTimes}"
-                SelectedItem="{Binding SelectedEndTime}"
+                ItemsSource="{Binding EndKeys}"
+                SelectedItem="{Binding SelectedEndKey}"
                 MinWidth=" 100" />
 
         </DockPanel>

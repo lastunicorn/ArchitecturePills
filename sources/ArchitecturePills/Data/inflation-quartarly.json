@@ -1,0 +1,506 @@
+﻿[
+  {
+    "Key": "T1 1991",
+    "InflationRate": 40.6
+  },
+  {
+    "Key": "T2 1991",
+    "InflationRate": 40.3
+  },
+  {
+    "Key": "T3 1991",
+    "InflationRate": 24.2
+  },
+  {
+    "Key": "T4 1991",
+    "InflationRate": 34.3
+  },
+  {
+    "Key": "T1 1992",
+    "InflationRate": 50.3
+  },
+  {
+    "Key": "T2 1992",
+    "InflationRate": 26.7
+  },
+  {
+    "Key": "T3 1992",
+    "InflationRate": 16.3
+  },
+  {
+    "Key": "T4 1992",
+    "InflationRate": 34.5
+  },
+  {
+    "Key": "T1 1993",
+    "InflationRate": 36.7
+  },
+  {
+    "Key": "T2 1993",
+    "InflationRate": 46.5
+  },
+  {
+    "Key": "T3 1993",
+    "InflationRate": 41.2
+  },
+  {
+    "Key": "T4 1993",
+    "InflationRate": 44.3
+  },
+  {
+    "Key": "T1 1994",
+    "InflationRate": 22.4
+  },
+  {
+    "Key": "T2 1994",
+    "InflationRate": 18.6
+  },
+  {
+    "Key": "T3 1994",
+    "InflationRate": 7.6
+  },
+  {
+    "Key": "T4 1994",
+    "InflationRate": 10.5
+  },
+  {
+    "Key": "T1 1995",
+    "InflationRate": 5.7
+  },
+  {
+    "Key": "T2 1995",
+    "InflationRate": 3.9
+  },
+  {
+    "Key": "T3 1995",
+    "InflationRate": 5.1
+  },
+  {
+    "Key": "T4 1995",
+    "InflationRate": 9.2
+  },
+  {
+    "Key": "T1 1996",
+    "InflationRate": 6.9
+  },
+  {
+    "Key": "T2 1996",
+    "InflationRate": 7.8
+  },
+  {
+    "Key": "T3 1996",
+    "InflationRate": 13.8
+  },
+  {
+    "Key": "T4 1996",
+    "InflationRate": 14.3
+  },
+  {
+    "Key": "T1 1997",
+    "InflationRate": 53.9
+  },
+  {
+    "Key": "T2 1997",
+    "InflationRate": 38.0
+  },
+  {
+    "Key": "T3 1997",
+    "InflationRate": 7.2
+  },
+  {
+    "Key": "T4 1997",
+    "InflationRate": 14.9
+  },
+  {
+    "Key": "T1 1998",
+    "InflationRate": 16.2
+  },
+  {
+    "Key": "T2 1998",
+    "InflationRate": 9.7
+  },
+  {
+    "Key": "T3 1998",
+    "InflationRate": 4.3
+  },
+  {
+    "Key": "T4 1998",
+    "InflationRate": 8.1
+  },
+  {
+    "Key": "T1 1999",
+    "InflationRate": 9.5
+  },
+  {
+    "Key": "T2 1999",
+    "InflationRate": 16.1
+  },
+  {
+    "Key": "T3 1999",
+    "InflationRate": 8.8
+  },
+  {
+    "Key": "T4 1999",
+    "InflationRate": 10.7
+  },
+  {
+    "Key": "T1 2000",
+    "InflationRate": 9.9
+  },
+  {
+    "Key": "T2 2000",
+    "InflationRate": 9.1
+  },
+  {
+    "Key": "T3 2000",
+    "InflationRate": 9.2
+  },
+  {
+    "Key": "T4 2000",
+    "InflationRate": 8.2
+  },
+  {
+    "Key": "T1 2001",
+    "InflationRate": 8.7
+  },
+  {
+    "Key": "T2 2001",
+    "InflationRate": 6.6
+  },
+  {
+    "Key": "T3 2001",
+    "InflationRate": 5.2
+  },
+  {
+    "Key": "T4 2001",
+    "InflationRate": 7.2
+  },
+  {
+    "Key": "T1 2002",
+    "InflationRate": 5.6
+  },
+  {
+    "Key": "T2 2002",
+    "InflationRate": 4.4
+  },
+  {
+    "Key": "T3 2002",
+    "InflationRate": 2.7
+  },
+  {
+    "Key": "T4 2002",
+    "InflationRate": 4.6
+  },
+  {
+    "Key": "T1 2003",
+    "InflationRate": 4.1
+  },
+  {
+    "Key": "T2 2003",
+    "InflationRate": 2.7
+  },
+  {
+    "Key": "T3 2003",
+    "InflationRate": 2.8
+  },
+  {
+    "Key": "T4 2003",
+    "InflationRate": 4.4
+  },
+  {
+    "Key": "T1 2004",
+    "InflationRate": 3.0
+  },
+  {
+    "Key": "T2 2004",
+    "InflationRate": 1.5
+  },
+  {
+    "Key": "T3 2004",
+    "InflationRate": 2.5
+  },
+  {
+    "Key": "T4 2004",
+    "InflationRate": 2.7
+  },
+  {
+    "Key": "T1 2005",
+    "InflationRate": 1.9
+  },
+  {
+    "Key": "T2 2005",
+    "InflationRate": 2.5
+  },
+  {
+    "Key": "T3 2005",
+    "InflationRate": 1.5
+  },
+  {
+    "Key": "T4 2005",
+    "InflationRate": 2.3
+  },
+  {
+    "Key": "T1 2006",
+    "InflationRate": 2.0
+  },
+  {
+    "Key": "T2 2006",
+    "InflationRate": 1.1
+  },
+  {
+    "Key": "T3 2006",
+    "InflationRate": 0.4
+  },
+  {
+    "Key": "T4 2006",
+    "InflationRate": 1.2
+  },
+  {
+    "Key": "T1 2007",
+    "InflationRate": 1.1
+  },
+  {
+    "Key": "T2 2007",
+    "InflationRate": 1.1
+  },
+  {
+    "Key": "T3 2007",
+    "InflationRate": 1.5
+  },
+  {
+    "Key": "T4 2007",
+    "InflationRate": 2.8
+  },
+  {
+    "Key": "T1 2008",
+    "InflationRate": 2.3
+  },
+  {
+    "Key": "T2 2008",
+    "InflationRate": 1.6
+  },
+  {
+    "Key": "T3 2008",
+    "InflationRate": 1.1
+  },
+  {
+    "Key": "T4 2008",
+    "InflationRate": 1.6
+  },
+  {
+    "Key": "T1 2009",
+    "InflationRate": 2.3
+  },
+  {
+    "Key": "T2 2009",
+    "InflationRate": 1.0
+  },
+  {
+    "Key": "T3 2009",
+    "InflationRate": 0.1
+  },
+  {
+    "Key": "T4 2009",
+    "InflationRate": 1.2
+  },
+  {
+    "Key": "T1 2010",
+    "InflationRate": 2.3
+  },
+  {
+    "Key": "T2 2010",
+    "InflationRate": 0.7
+  },
+  {
+    "Key": "T3 2010",
+    "InflationRate": 3.1
+  },
+  {
+    "Key": "T4 2010",
+    "InflationRate": 1.5
+  },
+  {
+    "Key": "T1 2011",
+    "InflationRate": 2.0
+  },
+  {
+    "Key": "T2 2011",
+    "InflationRate": 1.4
+  },
+  {
+    "Key": "T3 2011",
+    "InflationRate": -0.8
+  },
+  {
+    "Key": "T4 2011",
+    "InflationRate": 0.7
+  },
+  {
+    "Key": "T1 2012",
+    "InflationRate": 1.2
+  },
+  {
+    "Key": "T2 2012",
+    "InflationRate": 0.7
+  },
+  {
+    "Key": "T3 2012",
+    "InflationRate": 1.4
+  },
+  {
+    "Key": "T4 2012",
+    "InflationRate": 1.5
+  },
+  {
+    "Key": "T1 2013",
+    "InflationRate": 2.0
+  },
+  {
+    "Key": "T2 2013",
+    "InflationRate": 0.4
+  },
+  {
+    "Key": "T3 2013",
+    "InflationRate": -0.6
+  },
+  {
+    "Key": "T4 2013",
+    "InflationRate": -0.1
+  },
+  {
+    "Key": "T1 2014",
+    "InflationRate": 1.3
+  },
+  {
+    "Key": "T2 2014",
+    "InflationRate": 0.3
+  },
+  {
+    "Key": "T3 2014",
+    "InflationRate": -0.4
+  },
+  {
+    "Key": "T4 2014",
+    "InflationRate": 0.0
+  },
+  {
+    "Key": "T1 2015",
+    "InflationRate": 0.7
+  },
+  {
+    "Key": "T2 2015",
+    "InflationRate": -0.2
+  },
+  {
+    "Key": "T3 2015",
+    "InflationRate": -2.2
+  },
+  {
+    "Key": "T4 2015",
+    "InflationRate": 0.5
+  },
+  {
+    "Key": "T1 2016",
+    "InflationRate": -0.7
+  },
+  {
+    "Key": "T2 2016",
+    "InflationRate": 0.0
+  },
+  {
+    "Key": "T3 2016",
+    "InflationRate": -0.3
+  },
+  {
+    "Key": "T4 2016",
+    "InflationRate": 0.5
+  },
+  {
+    "Key": "T1 2017",
+    "InflationRate": 0.0
+  },
+  {
+    "Key": "T2 2017",
+    "InflationRate": 0.5
+  },
+  {
+    "Key": "T3 2017",
+    "InflationRate": 0.5
+  },
+  {
+    "Key": "T4 2017",
+    "InflationRate": 2.1
+  },
+  {
+    "Key": "T1 2018",
+    "InflationRate": 1.5
+  },
+  {
+    "Key": "T2 2018",
+    "InflationRate": 1.2
+  },
+  {
+    "Key": "T3 2018",
+    "InflationRate": 0.0
+  },
+  {
+    "Key": "T4 2018",
+    "InflationRate": 0.9
+  },
+  {
+    "Key": "T1 2019",
+    "InflationRate": 1.6
+  },
+  {
+    "Key": "T2 2019",
+    "InflationRate": 1.4
+  },
+  {
+    "Key": "T3 2019",
+    "InflationRate": -0.1
+  },
+  {
+    "Key": "T4 2019",
+    "InflationRate": 0.8
+  },
+  {
+    "Key": "T1 2020",
+    "InflationRate": 1.1
+  },
+  {
+    "Key": "T2 2020",
+    "InflationRate": 0.7
+  },
+  {
+    "Key": "T3 2020",
+    "InflationRate": 0
+  },
+  {
+    "Key": "T4 2020",
+    "InflationRate": 0.3
+  },
+  {
+    "Key": "T1 2021",
+    "InflationRate": 2.0
+  },
+  {
+    "Key": "T2 2021",
+    "InflationRate": 1.3
+  },
+  {
+    "Key": "T3 2021",
+    "InflationRate": 1.8
+  },
+  {
+    "Key": "T4 2021",
+    "InflationRate": 2.7
+  },
+  {
+    "Key": "T1 2022",
+    "InflationRate": 3.0
+  },
+  {
+    "Key": "T2 2022",
+    "InflationRate": 6.3
+  }
+]
