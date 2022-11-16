@@ -10,15 +10,15 @@ namespace DustInTheWind.ArchitecturePills.Domain
 
         public float? OutputValue { get; set; }
 
-        public string StartTime { get; set; }
+        public string StartKey { get; set; }
 
-        public string EndTime { get; set; }
+        public string EndKey { get; set; }
 
         public void Calculate()
         {
-            int startIndex = Inflations.FindIndex(x => x.Time == StartTime);
+            int startIndex = Inflations.FindIndex(x => x.Key == StartKey);
 
-            int endIndex = Inflations.FindIndex(x => x.Time == EndTime);
+            int endIndex = Inflations.FindIndex(x => x.Key == EndKey);
 
             if (startIndex == -1 || endIndex == -1)
             {

@@ -91,8 +91,8 @@ namespace DustInTheWind.ArchitecturePills
             {
                 Inflations = inflations,
                 InputValue = inputValue,
-                StartTime = selectedStartTime,
-                EndTime = selectedEndTime
+                StartKey = selectedStartKey,
+                EndKey = selectedEndKey
             };
 
             calculator.Calculate();
