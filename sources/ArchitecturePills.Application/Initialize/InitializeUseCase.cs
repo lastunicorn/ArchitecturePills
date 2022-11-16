@@ -14,7 +14,7 @@ namespace DustInTheWind.ArchitecturePills.Application.Initialize
             List<Inflation> inflations = LoadInflations();
 
             List<string> listValues = inflations
-                .Select(x => x.Time)
+                .Select(x => x.Key)
                 .ToList();
 
             return new InitializeResponse

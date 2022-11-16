@@ -16,9 +16,9 @@ namespace DustInTheWind.ArchitecturePills.Domain
 
         public void Calculate()
         {
-            int startIndex = Inflations.FindIndex(x => x.Time == StartTime);
+            int startIndex = Inflations.FindIndex(x => x.Key == StartTime);
 
-            int endIndex = Inflations.FindIndex(x => x.Time == EndTime);
+            int endIndex = Inflations.FindIndex(x => x.Key == EndTime);
 
             if (startIndex == -1 || endIndex == -1)
             {

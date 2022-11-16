@@ -6,31 +6,31 @@ namespace DustInTheWind.ArchitecturePills
 {
     public class MainViewModel : BaseViewModel
     {
-        private string selectedStartTime;
-        private string selectedEndTime;
+        private string selectedStartKey;
+        private string selectedEndKey;
         private float inputValue;
         private float? outputValue;
 
-        public List<string> StartTimes { get; set; }
+        public List<string> StartKeys { get; private set; }
 
-        public List<string> EndTimes { get; set; }
+        public List<string> EndKeys { get; private set; }
 
-        public string SelectedStartTime
+        public string SelectedStartKey
         {
-            get => selectedStartTime;
+            get => selectedStartKey;
             set
             {
-                selectedStartTime = value;
+                selectedStartKey = value;
                 CalculateOutputValue();
             }
         }
 
-        public string SelectedEndTime
+        public string SelectedEndKey
         {
-            get => selectedEndTime;
+            get => selectedEndKey;
             set
             {
-                selectedEndTime = value;
+                selectedEndKey = value;
                 CalculateOutputValue();
             }
         }
@@ -65,10 +65,10 @@ namespace DustInTheWind.ArchitecturePills
             InitializeUseCase useCase = new();
             InitializeResponse response = useCase.Execute();
 
-            StartTimes = response.StartTimes;
-            SelectedStartTime = response.SelectedStartTime;
-            EndTimes = response.EndTimes;
-            SelectedEndTime = response.SelectedEndTime;
+            StartKeys = response.StartTimes;
+            SelectedStartKey = response.SelectedStartTime;
+            EndKeys = response.EndTimes;
+            SelectedEndKey = response.SelectedEndTime;
             InputValue = response.InputValue;
         }
 
@@ -77,8 +77,8 @@ namespace DustInTheWind.ArchitecturePills
             CalculateValueRequest request = new()
             {
                 InputValue = inputValue,
-                StartTime = selectedStartTime,
-                EndTime = selectedEndTime
+                StartTime = selectedStartKey,
+                EndTime = selectedEndKey
             };
 
             CalculateValueUseCase useCase = new();
