@@ -2,7 +2,7 @@
 {
     internal class Inflation
     {
-        public string Time { get; set; }
+        public string Key { get; set; }
 
         public float InflationRate { get; set; }
     }

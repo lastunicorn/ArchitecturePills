@@ -9,31 +9,31 @@ namespace DustInTheWind.ArchitecturePills
     public class MainViewModel : BaseViewModel
     {
         private readonly List<Inflation> inflations;
-        private string selectedStartTime;
-        private string selectedEndTime;
+        private string selectedStartKey;
+        private string selectedEndKey;
         private float inputValue;
         private float? outputValue;
 
-        public List<string> StartTimes { get; }
+        public List<string> StartKeys { get; }
 
-        public List<string> EndTimes { get; }
+        public List<string> EndKeys { get; }
 
-        public string SelectedStartTime
+        public string SelectedStartKey
         {
-            get => selectedStartTime;
+            get => selectedStartKey;
             set
             {
-                selectedStartTime = value;
+                selectedStartKey = value;
                 CalculateOutputValue();
             }
         }
 
-        public string SelectedEndTime
+        public string SelectedEndKey
         {
-            get => selectedEndTime;
+            get => selectedEndKey;
             set
             {
-                selectedEndTime = value;
+                selectedEndKey = value;
                 CalculateOutputValue();
             }
         }
@@ -63,14 +63,14 @@ namespace DustInTheWind.ArchitecturePills
             inflations = LoadInflations();
 
             List<string> listValues = inflations
-                .Select(x => x.Time)
+                .Select(x => x.Key)
                 .ToList();
 
-            StartTimes = listValues;
-            SelectedStartTime = listValues.LastOrDefault();
+            StartKeys = listValues;
+            SelectedStartKey = listValues.LastOrDefault();
 
-            EndTimes = listValues;
-            SelectedEndTime = listValues.LastOrDefault();
+            EndKeys = listValues;
+            SelectedEndKey = listValues.LastOrDefault();
 
             InputValue = 100;
         }
@@ -87,10 +87,10 @@ namespace DustInTheWind.ArchitecturePills
         private void CalculateOutputValue()
         {
             // find start index
-            int startIndex = inflations.FindIndex(x => x.Time == selectedStartTime);
+            int startIndex = inflations.FindIndex(x => x.Key == selectedStartKey);
 
             // find end index
-            int endIndex = inflations.FindIndex(x => x.Time == selectedEndTime);
+            int endIndex = inflations.FindIndex(x => x.Key == selectedEndKey);
 
             if (startIndex == -1 || endIndex == -1)
             {
