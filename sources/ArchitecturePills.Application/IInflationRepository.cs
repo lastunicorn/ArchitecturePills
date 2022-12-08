@@ -15,25 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using DustInTheWind.ArchitecturePills.Domain;
 
-namespace DustInTheWind.ArchitecturePills;
-
-public class BaseViewModel : INotifyPropertyChanged
+namespace DustInTheWind.ArchitecturePills.Application
 {
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    public interface IInflationRepository
     {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
+        List<Inflation> GetAll();
     }
 }
