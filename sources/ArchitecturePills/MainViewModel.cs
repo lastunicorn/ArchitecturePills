@@ -1,90 +1,105 @@
-﻿using System.Collections.Generic;
+﻿// Architecture Pills
+// Copyright (C) 2022 Dust in the Wind
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System.Collections.Generic;
 using DustInTheWind.ArchitecturePills.Application.CalculateValue;
 using DustInTheWind.ArchitecturePills.Application.Initialize;
 
-namespace DustInTheWind.ArchitecturePills
+namespace DustInTheWind.ArchitecturePills;
+
+public class MainViewModel : BaseViewModel
 {
-    public class MainViewModel : BaseViewModel
+    private string? selectedStartKey;
+    private string? selectedEndKey;
+    private float inputValue;
+    private float? outputValue;
+
+    public List<string>? StartKeys { get; private set; }
+
+    public List<string>? EndKeys { get; private set; }
+
+    public string? SelectedStartKey
     {
-        private string selectedStartKey;
-        private string selectedEndKey;
-        private float inputValue;
-        private float? outputValue;
-
-        public List<string> StartKeys { get; private set; }
-
-        public List<string> EndKeys { get; private set; }
-
-        public string SelectedStartKey
+        get => selectedStartKey;
+        set
         {
-            get => selectedStartKey;
-            set
-            {
-                selectedStartKey = value;
-                CalculateOutputValue();
-            }
+            selectedStartKey = value;
+            CalculateOutputValue();
         }
+    }
 
-        public string SelectedEndKey
+    public string? SelectedEndKey
+    {
+        get => selectedEndKey;
+        set
         {
-            get => selectedEndKey;
-            set
-            {
-                selectedEndKey = value;
-                CalculateOutputValue();
-            }
+            selectedEndKey = value;
+            CalculateOutputValue();
         }
+    }
 
-        public float InputValue
+    public float InputValue
+    {
+        get => inputValue;
+        set
         {
-            get => inputValue;
-            set
-            {
-                inputValue = value;
-                CalculateOutputValue();
-            }
+            inputValue = value;
+            CalculateOutputValue();
         }
+    }
 
-        public float? OutputValue
+    public float? OutputValue
+    {
+        get => outputValue;
+        private set
         {
-            get => outputValue;
-            private set
-            {
-                outputValue = value;
-                OnPropertyChanged();
-            }
+            outputValue = value;
+            OnPropertyChanged();
         }
+    }
 
-        public MainViewModel()
+    public MainViewModel()
+    {
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        InitializeUseCase useCase = new();
+        InitializeResponse response = useCase.Execute();
+
+        StartKeys = response.StartTimes;
+        SelectedStartKey = response.SelectedStartTime;
+        EndKeys = response.EndTimes;
+        SelectedEndKey = response.SelectedEndTime;
+        InputValue = response.InputValue;
+    }
+
+    private void CalculateOutputValue()
+    {
+        CalculateValueRequest request = new()
         {
-            Initialize();
-        }
+            InputValue = inputValue,
+            StartTime = selectedStartKey,
+            EndTime = selectedEndKey
+        };
 
-        private void Initialize()
-        {
-            InitializeUseCase useCase = new();
-            InitializeResponse response = useCase.Execute();
+        CalculateValueUseCase useCase = new();
+        CalculateValueResponse response = useCase.Execute(request);
 
-            StartKeys = response.StartTimes;
-            SelectedStartKey = response.SelectedStartTime;
-            EndKeys = response.EndTimes;
-            SelectedEndKey = response.SelectedEndTime;
-            InputValue = response.InputValue;
-        }
-
-        private void CalculateOutputValue()
-        {
-            CalculateValueRequest request = new()
-            {
-                InputValue = inputValue,
-                StartTime = selectedStartKey,
-                EndTime = selectedEndKey
-            };
-
-            CalculateValueUseCase useCase = new();
-            CalculateValueResponse response = useCase.Execute(request);
-
-            OutputValue = response.OutputValue;
-        }
+        OutputValue = response.OutputValue;
     }
 }

@@ -1,41 +1,56 @@
-﻿using System.Collections.Generic;
+﻿// Architecture Pills
+// Copyright (C) 2022 Dust in the Wind
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using DustInTheWind.ArchitecturePills.Domain;
 using Newtonsoft.Json;
 
-namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
+namespace DustInTheWind.ArchitecturePills.Application.CalculateValue;
+
+public class CalculateValueUseCase
 {
-    public class CalculateValueUseCase
+    public CalculateValueResponse Execute(CalculateValueRequest request)
     {
-        public CalculateValueResponse Execute(CalculateValueRequest request)
+        List<Inflation> inflations = LoadInflations();
+
+        Calculator calculator = new()
         {
-            List<Inflation> inflations = LoadInflations();
+            Inflations = inflations,
+            InputValue = request.InputValue,
+            StartKey = request.StartTime,
+            EndKey = request.EndTime
+        };
 
-            Calculator calculator = new()
-            {
-                Inflations = inflations,
-                InputValue = request.InputValue,
-                StartTime = request.StartTime,
-                EndTime = request.EndTime
-            };
+        calculator.Calculate();
+        float? outputValue = calculator.OutputValue;
 
-            calculator.Calculate();
-            float? outputValue = calculator.OutputValue;
-
-            return new CalculateValueResponse()
-            {
-                OutputValue = outputValue
-            };
-        }
-
-        private static List<Inflation> LoadInflations()
+        return new CalculateValueResponse()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            using Stream stream = assembly.GetManifestResourceStream("DustInTheWind.ArchitecturePills.Application.Data.inflation-yearly.json");
-            using StreamReader streamReader = new(stream);
-            string json = streamReader.ReadToEnd();
-            return JsonConvert.DeserializeObject<List<Inflation>>(json);
-        }
+            OutputValue = outputValue
+        };
+    }
+
+    private static List<Inflation> LoadInflations()
+    {
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        using Stream stream = assembly.GetManifestResourceStream("DustInTheWind.ArchitecturePills.Application.Data.inflation-yearly.json")!;
+        using StreamReader streamReader = new(stream);
+        string json = streamReader.ReadToEnd();
+        return JsonConvert.DeserializeObject<List<Inflation>>(json) ?? new List<Inflation>();
     }
 }
