@@ -1,17 +1,16 @@
 ﻿using System.Windows;
 
-namespace DustInTheWind.ArchitecturePills
-{
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
+namespace DustInTheWind.ArchitecturePills;
 
-            DataContext = new MainViewModel();
-        }
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+
+        DataContext = new MainViewModel();
     }
 }
