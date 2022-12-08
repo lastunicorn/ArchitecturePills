@@ -9,8 +9,8 @@ namespace DustInTheWind.ArchitecturePills
     public class MainViewModel : BaseViewModel
     {
         private readonly List<Inflation> inflations;
-        private string selectedStartKey;
-        private string selectedEndKey;
+        private string? selectedStartKey;
+        private string? selectedEndKey;
         private float inputValue;
         private float? outputValue;
 
@@ -18,7 +18,7 @@ namespace DustInTheWind.ArchitecturePills
 
         public List<string> EndKeys { get; }
 
-        public string SelectedStartKey
+        public string? SelectedStartKey
         {
             get => selectedStartKey;
             set
@@ -28,7 +28,7 @@ namespace DustInTheWind.ArchitecturePills
             }
         }
 
-        public string SelectedEndKey
+        public string? SelectedEndKey
         {
             get => selectedEndKey;
             set
@@ -63,7 +63,7 @@ namespace DustInTheWind.ArchitecturePills
             inflations = LoadInflations();
 
             List<string> listValues = inflations
-                .Select(x => x.Key)
+                .Select(x => x.Key!)
                 .ToList();
 
             StartKeys = listValues;
@@ -78,10 +78,10 @@ namespace DustInTheWind.ArchitecturePills
         private static List<Inflation> LoadInflations()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            using Stream stream = assembly.GetManifestResourceStream("DustInTheWind.ArchitecturePills.Data.inflation-yearly.json");
+            using Stream stream = assembly.GetManifestResourceStream("DustInTheWind.ArchitecturePills.Data.inflation-yearly.json")!;
             using StreamReader streamReader = new(stream);
             string json = streamReader.ReadToEnd();
-            return JsonConvert.DeserializeObject<List<Inflation>>(json);
+            return JsonConvert.DeserializeObject<List<Inflation>>(json) ?? new List<Inflation>();
         }
 
         private void CalculateOutputValue()
