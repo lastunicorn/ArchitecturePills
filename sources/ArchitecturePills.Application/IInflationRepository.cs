@@ -17,10 +17,9 @@
 using System.Collections.Generic;
 using DustInTheWind.ArchitecturePills.Domain;
 
-namespace DustInTheWind.ArchitecturePills.Application
+namespace DustInTheWind.ArchitecturePills.Application;
+
+public interface IInflationRepository
 {
-    public interface IInflationRepository
-    {
-        List<Inflation> GetAll();
-    }
+    List<Inflation> GetAll();
 }

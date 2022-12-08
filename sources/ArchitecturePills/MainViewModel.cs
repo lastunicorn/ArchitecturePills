@@ -19,7 +19,6 @@ using System.Collections.Generic;
 using DustInTheWind.ArchitecturePills.Application;
 using DustInTheWind.ArchitecturePills.Application.CalculateValue;
 using DustInTheWind.ArchitecturePills.Application.Initialize;
-using DustInTheWind.ArchitecturePills.DataAccess;
 
 namespace DustInTheWind.ArchitecturePills;
 
@@ -102,7 +101,7 @@ public class MainViewModel : BaseViewModel
             StartKey = selectedStartKey,
             EndKey = selectedEndKey
         };
-            
+
         CalculateValueUseCase useCase = new(inflationRepository);
         CalculateValueResponse response = useCase.Execute(request);
 
