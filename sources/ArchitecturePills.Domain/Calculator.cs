@@ -10,9 +10,9 @@ namespace DustInTheWind.ArchitecturePills.Domain
 
         public float? OutputValue { get; set; }
 
-        public string StartKey { get; set; }
+        public string? StartKey { get; set; }
 
-        public string EndKey { get; set; }
+        public string? EndKey { get; set; }
 
         public void Calculate()
         {
