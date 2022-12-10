@@ -28,14 +28,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MediatR" Version="11.0.0" />
-      <PackageReference Include="Autofac" Version="6.4.0" />
-      <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="9.0.0" />
+        <PackageReference Include="MediatR" Version="11.0.0" />
+        <PackageReference Include="Autofac" Version="6.4.0" />
+        <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="9.0.0" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\ArchitecturePills.Application\ArchitecturePills.Application.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.DataAccess\ArchitecturePills.DataAccess.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\ArchitecturePills.Infrastructure\ArchitecturePills.Infrastructure.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Ports.DataAccess\ArchitecturePills.Ports.DataAccess.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Presentation\ArchitecturePills.Presentation.csproj" PrivateAssets="All" />
     </ItemGroup>

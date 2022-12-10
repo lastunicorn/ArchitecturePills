@@ -16,25 +16,28 @@
 
 using System.Reflection;
 using Autofac;
+using DustInTheWind.ArchitecturePills.Application;
 using DustInTheWind.ArchitecturePills.Application.Initialize;
 using DustInTheWind.ArchitecturePills.DataAccess;
+using DustInTheWind.ArchitecturePills.Infrastructure;
 using DustInTheWind.ArchitecturePills.Ports.DataAccess;
 using DustInTheWind.ArchitecturePills.Presentation;
 using MediatR.Extensions.Autofac.DependencyInjection;
 
-namespace DustInTheWind.ArchitecturePills.Bootstrapper
+namespace DustInTheWind.ArchitecturePills.Bootstrapper;
+
+internal static class SetupServices
 {
-    internal static class SetupServices
+    public static void Configure(ContainerBuilder containerBuilder)
     {
-        public static void Configure(ContainerBuilder containerBuilder)
-        {
-            Assembly applicationAssembly = typeof(InitializeRequest).Assembly;
-            containerBuilder.RegisterMediatR(applicationAssembly);
+        containerBuilder.RegisterType<RequestBus>().As<IRequestBus>().SingleInstance();
 
-            containerBuilder.RegisterType<InflationRepository>().As<IInflationRepository>();
+        Assembly applicationAssembly = typeof(InitializeRequest).Assembly;
+        containerBuilder.RegisterMediatR(applicationAssembly);
 
-            containerBuilder.RegisterType<MainWindow>().AsSelf();
-            containerBuilder.RegisterType<MainViewModel>().AsSelf();
-        }
+        containerBuilder.RegisterType<InflationRepository>().As<IInflationRepository>();
+
+        containerBuilder.RegisterType<MainWindow>().AsSelf();
+        containerBuilder.RegisterType<MainViewModel>().AsSelf();
     }
 }

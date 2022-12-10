@@ -19,13 +19,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DustInTheWind.ArchitecturePills.Application.CalculateValue;
 using DustInTheWind.ArchitecturePills.Application.Initialize;
-using MediatR;
+using DustInTheWind.ArchitecturePills.Infrastructure;
 
 namespace DustInTheWind.ArchitecturePills.Presentation;
 
 public class MainViewModel : BaseViewModel
 {
-    private readonly IMediator mediator;
+    private readonly IRequestBus requestBus;
     private string? selectedStartKey;
     private string? selectedEndKey;
     private float inputValue;
@@ -75,9 +75,9 @@ public class MainViewModel : BaseViewModel
         }
     }
 
-    public MainViewModel(IMediator mediator)
+    public MainViewModel(IRequestBus requestBus)
     {
-        this.mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        this.requestBus = requestBus ?? throw new ArgumentNullException(nameof(requestBus));
 
         _ = Initialize();
     }
@@ -85,7 +85,7 @@ public class MainViewModel : BaseViewModel
     private async Task Initialize()
     {
         InitializeRequest request = new();
-        InitializeResponse response = await mediator.Send(request);
+        InitializeResponse response = await requestBus.Send<InitializeRequest, InitializeResponse>(request);
 
         StartKeys = response.StartKeys;
         SelectedStartKey = response.SelectedStartKey;
@@ -103,7 +103,7 @@ public class MainViewModel : BaseViewModel
             EndKey = selectedEndKey
         };
 
-        CalculateValueResponse response = await mediator.Send(request);
+        CalculateValueResponse response = await requestBus.Send<CalculateValueRequest, CalculateValueResponse>(request);
 
         OutputValue = response.OutputValue;
     }

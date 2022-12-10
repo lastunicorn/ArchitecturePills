@@ -28,6 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <ItemGroup>
         <ProjectReference Include="..\ArchitecturePills.Application\ArchitecturePills.Application.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\ArchitecturePills.Infrastructure\ArchitecturePills.Infrastructure.csproj" PrivateAssets="All" />
         <ProjectReference Include="..\ArchitecturePills.Ports.DataAccess\ArchitecturePills.Ports.DataAccess.csproj" PrivateAssets="All" />
     </ItemGroup>
 

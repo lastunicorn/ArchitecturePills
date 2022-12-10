@@ -14,31 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System.Windows;
-using Autofac;
-using DustInTheWind.ArchitecturePills.Presentation;
+using System.Diagnostics.CodeAnalysis;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace DustInTheWind.ArchitecturePills.Bootstrapper;
+namespace DustInTheWind.ArchitecturePills.Infrastructure;
 
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
-public partial class App : System.Windows.Application
+public interface IRequestBus
 {
-    protected override void OnStartup(StartupEventArgs e)
-    {
-        IContainer container = CreateContainer();
+    Task<TResponse?> Send<TRequest, TResponse>([DisallowNull] TRequest request, CancellationToken cancellationToken = default);
 
-        MainWindow = container.Resolve<MainWindow>();
-        MainWindow.Show();
-
-        base.OnStartup(e);
-    }
-
-    private static IContainer CreateContainer()
-    {
-        ContainerBuilder containerBuilder = new();
-        SetupServices.Configure(containerBuilder);
-        return containerBuilder.Build();
-    }
+    Task Send<TRequest>([DisallowNull] TRequest request, CancellationToken cancellationToken = default);
 }
