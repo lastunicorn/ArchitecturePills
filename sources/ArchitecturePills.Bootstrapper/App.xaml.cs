@@ -18,24 +18,23 @@ using System.Windows;
 using DustInTheWind.ArchitecturePills.DataAccess;
 using DustInTheWind.ArchitecturePills.Presentation;
 
-namespace DustInTheWind.ArchitecturePills.Bootstrapper
+namespace DustInTheWind.ArchitecturePills.Bootstrapper;
+
+/// <summary>
+/// Interaction logic for App.xaml
+/// </summary>
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    protected override void OnStartup(StartupEventArgs e)
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            InflationRepository inflationRepository = new();
-            MainViewModel viewModel = new(inflationRepository);
+        InflationRepository inflationRepository = new();
+        MainViewModel viewModel = new(inflationRepository);
 
-            MainWindow mainWindow = new(viewModel);
+        MainWindow mainWindow = new(viewModel);
 
-            MainWindow = mainWindow;
-            MainWindow.Show();
+        MainWindow = mainWindow;
+        MainWindow.Show();
 
-            base.OnStartup(e);
-        }
+        base.OnStartup(e);
     }
 }
