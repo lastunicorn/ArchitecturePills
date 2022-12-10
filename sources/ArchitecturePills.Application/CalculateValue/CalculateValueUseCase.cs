@@ -1,4 +1,20 @@
-﻿using System;
+﻿// Architecture Pills
+// Copyright (C) 2022 Dust in the Wind
+// 
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+// 
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,38 +22,37 @@ using DustInTheWind.ArchitecturePills.Domain;
 using DustInTheWind.ArchitecturePills.Ports.DataAccess;
 using MediatR;
 
-namespace DustInTheWind.ArchitecturePills.Application.CalculateValue
+namespace DustInTheWind.ArchitecturePills.Application.CalculateValue;
+
+internal class CalculateValueUseCase : IRequestHandler<CalculateValueRequest, CalculateValueResponse>
 {
-    internal class CalculateValueUseCase : IRequestHandler<CalculateValueRequest, CalculateValueResponse>
+    private readonly IInflationRepository inflationRepository;
+
+    public CalculateValueUseCase(IInflationRepository inflationRepository)
     {
-        private readonly IInflationRepository inflationRepository;
+        this.inflationRepository = inflationRepository ?? throw new ArgumentNullException(nameof(inflationRepository));
+    }
 
-        public CalculateValueUseCase(IInflationRepository inflationRepository)
+    public Task<CalculateValueResponse> Handle(CalculateValueRequest request, CancellationToken cancellationToken)
+    {
+        List<Inflation> inflations = inflationRepository.GetAll();
+
+        Calculator calculator = new()
         {
-            this.inflationRepository = inflationRepository ?? throw new ArgumentNullException(nameof(inflationRepository));
-        }
+            Inflations = inflations,
+            InputValue = request.InputValue,
+            StartKey = request.StartKey,
+            EndKey = request.EndKey
+        };
 
-        public Task<CalculateValueResponse> Handle(CalculateValueRequest request, CancellationToken cancellationToken)
+        calculator.Calculate();
+        float? outputValue = calculator.OutputValue;
+
+        CalculateValueResponse response = new()
         {
-            List<Inflation> inflations = inflationRepository.GetAll();
+            OutputValue = outputValue
+        };
 
-            Calculator calculator = new()
-            {
-                Inflations = inflations,
-                InputValue = request.InputValue,
-                StartTime = request.StartTime,
-                EndTime = request.EndTime
-            };
-
-            calculator.Calculate();
-            float? outputValue = calculator.OutputValue;
-
-            CalculateValueResponse response = new()
-            {
-                OutputValue = outputValue
-            };
-
-            return Task.FromResult(response);
-        }
+        return Task.FromResult(response);
     }
 }
