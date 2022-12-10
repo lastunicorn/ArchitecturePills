@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32428.217
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturePills.Bootstrapper", "ArchitecturePills.Bootstrapper\ArchitecturePills.Bootstrapper.csproj", "{851C3188-ADBE-47D4-95A5-B1E8048BD0F4}"
 EndProject
@@ -9,15 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturePills.Domain", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturePills.Application", "ArchitecturePills.Application\ArchitecturePills.Application.csproj", "{4E50FFE0-F6D2-4079-A9B2-FEBE6FACEE7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturePills.DataAccess", "ArchitecturePills.DataAccess\ArchitecturePills.DataAccess.csproj", "{8D7DFDEF-F1AA-49C7-A178-4C18AA21A7CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturePills.DataAccess", "ArchitecturePills.DataAccess\ArchitecturePills.DataAccess.csproj", "{8D7DFDEF-F1AA-49C7-A178-4C18AA21A7CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturePills.Ports.DataAccess", "ArchitecturePills.Ports.DataAccess\ArchitecturePills.Ports.DataAccess.csproj", "{5E80D0EF-4A57-4B7E-97BA-57F5388ECAE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturePills.Ports.DataAccess", "ArchitecturePills.Ports.DataAccess\ArchitecturePills.Ports.DataAccess.csproj", "{5E80D0EF-4A57-4B7E-97BA-57F5388ECAE8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ports", "Ports", "{7D2D0F43-1A90-455F-9319-2FA0E1205940}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{4E62618D-C96F-49BC-9383-B501EA249C61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchitecturePills.Presentation", "ArchitecturePills.Presentation\ArchitecturePills.Presentation.csproj", "{539DA7A3-60A0-4915-8C6E-8596E8452366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchitecturePills.Presentation", "ArchitecturePills.Presentation\ArchitecturePills.Presentation.csproj", "{539DA7A3-60A0-4915-8C6E-8596E8452366}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
