@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <PropertyGroup>
         <TargetFramework>net6.0-windows</TargetFramework>
         <UseWPF>true</UseWPF>
+        <Nullable>enable</Nullable>
         <AssemblyName>DustInTheWind.ArchitecturePills.Presentation</AssemblyName>
         <RootNamespace>DustInTheWind.ArchitecturePills.Presentation</RootNamespace>
     </PropertyGroup>
