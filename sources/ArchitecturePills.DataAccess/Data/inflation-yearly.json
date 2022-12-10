@@ -1,202 +1,202 @@
 ﻿[
   {
-    "Time": "1972",
+    "Key": "1972",
     "InflationRate": 0.0
   },
   {
-    "Time": "1973",
+    "Key": "1973",
     "InflationRate": 0.7
   },
   {
-    "Time": "1974",
+    "Key": "1974",
     "InflationRate": 1.1
   },
   {
-    "Time": "1975",
+    "Key": "1975",
     "InflationRate": 0.2
   },
   {
-    "Time": "1976",
+    "Key": "1976",
     "InflationRate": 0.6
   },
   {
-    "Time": "1977",
+    "Key": "1977",
     "InflationRate": 0.6
   },
   {
-    "Time": "1978",
+    "Key": "1978",
     "InflationRate": 1.6
   },
   {
-    "Time": "1979",
+    "Key": "1979",
     "InflationRate": 2.0
   },
   {
-    "Time": "1980",
+    "Key": "1980",
     "InflationRate": 2.1
   },
   {
-    "Time": "1981",
+    "Key": "1981",
     "InflationRate": 3.1
   },
   {
-    "Time": "1982",
+    "Key": "1982",
     "InflationRate": 17.8
   },
   {
-    "Time": "1983",
+    "Key": "1983",
     "InflationRate": 4.1
   },
   {
-    "Time": "1984",
+    "Key": "1984",
     "InflationRate": 1.1
   },
   {
-    "Time": "1985",
+    "Key": "1985",
     "InflationRate": 0.8
   },
   {
-    "Time": "1986",
+    "Key": "1986",
     "InflationRate": 1.0
   },
   {
-    "Time": "1987",
+    "Key": "1987",
     "InflationRate": 0.9
   },
   {
-    "Time": "1988",
+    "Key": "1988",
     "InflationRate": 2.2
   },
   {
-    "Time": "1989",
+    "Key": "1989",
     "InflationRate": 1.1
   },
   {
-    "Time": "1990",
+    "Key": "1990",
     "InflationRate": 5.1
   },
   {
-    "Time": "1991",
+    "Key": "1991",
     "InflationRate": 170.2
   },
   {
-    "Time": "1992",
+    "Key": "1992",
     "InflationRate": 210.4
   },
   {
-    "Time": "1993",
+    "Key": "1993",
     "InflationRate": 256.1
   },
   {
-    "Time": "1994",
+    "Key": "1994",
     "InflationRate": 136.7
   },
   {
-    "Time": "1995",
+    "Key": "1995",
     "InflationRate": 32.3
   },
   {
-    "Time": "1996",
+    "Key": "1996",
     "InflationRate": 38.8
   },
   {
-    "Time": "1997",
+    "Key": "1997",
     "InflationRate": 154.8
   },
   {
-    "Time": "1998",
+    "Key": "1998",
     "InflationRate": 59.1
   },
   {
-    "Time": "1999",
+    "Key": "1999",
     "InflationRate": 45.8
   },
   {
-    "Time": "2000",
+    "Key": "2000",
     "InflationRate": 45.7
   },
   {
-    "Time": "2001",
+    "Key": "2001",
     "InflationRate": 34.5
   },
   {
-    "Time": "2002",
+    "Key": "2002",
     "InflationRate": 22.5
   },
   {
-    "Time": "2003",
+    "Key": "2003",
     "InflationRate": 15.3
   },
   {
-    "Time": "2004",
+    "Key": "2004",
     "InflationRate": 11.9
   },
   {
-    "Time": "2005",
+    "Key": "2005",
     "InflationRate": 9.0
   },
   {
-    "Time": "2006",
+    "Key": "2006",
     "InflationRate": 6.6
   },
   {
-    "Time": "2007",
+    "Key": "2007",
     "InflationRate": 4.8
   },
   {
-    "Time": "2008",
+    "Key": "2008",
     "InflationRate": 7.9
   },
   {
-    "Time": "2009",
+    "Key": "2009",
     "InflationRate": 5.6
   },
   {
-    "Time": "2010",
+    "Key": "2010",
     "InflationRate": 6.1
   },
   {
-    "Time": "2011",
+    "Key": "2011",
     "InflationRate": 5.8
   },
   {
-    "Time": "2012",
+    "Key": "2012",
     "InflationRate": 3.3
   },
   {
-    "Time": "2013",
+    "Key": "2013",
     "InflationRate": 4.0
   },
   {
-    "Time": "2014",
+    "Key": "2014",
     "InflationRate": 1.1
   },
   {
-    "Time": "2015",
+    "Key": "2015",
     "InflationRate": -0.6
   },
   {
-    "Time": "2016",
+    "Key": "2016",
     "InflationRate": -1.5
   },
   {
-    "Time": "2017",
+    "Key": "2017",
     "InflationRate": 1.3
   },
   {
-    "Time": "2018",
+    "Key": "2018",
     "InflationRate": 4.6
   },
   {
-    "Time": "2019",
+    "Key": "2019",
     "InflationRate": 3.8
   },
   {
-    "Time": "2020",
+    "Key": "2020",
     "InflationRate": 2.6
   },
   {
-    "Time": "2021",
+    "Key": "2021",
     "InflationRate": 5.1
   }
 ]
